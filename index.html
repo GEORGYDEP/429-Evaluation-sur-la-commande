@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Évaluation formative — Les conditions de vente</title>
+<title>Évaluation formative — Le bon de commande</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -199,6 +199,34 @@ table.sch td.fixed { padding-left: 10px; color: var(--slate); }
 .prio ul { padding-left: 18px; color: var(--navy-light); }
 .sec-title { font-size: 16px; font-weight: 800; margin: 6px 0 14px; }
 
+
+/* Bon de commande (document) */
+.bc { background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius); padding: 14px 16px; margin-top: 4px; font-size: 13.5px; color: var(--navy); }
+.bc-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; line-height: 1.45; }
+.bc-sup { border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 8px 12px; min-width: 200px; }
+.bc-title { margin: 12px 0 8px; font-weight: 800; font-size: 15px; display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+.bc-title span { font-weight: 600; font-size: 13px; color: var(--slate); }
+.bc-scroll { overflow-x: auto; }
+table.bc-t { border-collapse: collapse; width: 100%; min-width: 520px; }
+table.bc-t th { background: var(--navy-light); color: var(--white); text-align: left; padding: 7px 8px; font-weight: 700; font-size: 12.5px; }
+table.bc-t td { border: 1px solid var(--gray-200); padding: 6px 8px; vertical-align: middle; }
+table.bc-t td .sch-slot { min-width: 64px; }
+.bc-cond { margin-top: 10px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 10px 12px; line-height: 1.6; }
+.cond-grid { display: grid; grid-template-columns: max-content minmax(180px, 280px); gap: 6px 12px; align-items: center; margin-top: 6px; }
+.cond-grid .fixed { padding-left: 4px; }
+.bc-sign { margin-top: 8px; text-align: right; }
+/* Planning de suivi */
+.plan-wrap { overflow-x: auto; margin-top: 8px; }
+table.plan { border-collapse: collapse; font-size: 13px; background: var(--white); min-width: 560px; }
+table.plan th { background: var(--navy-light); color: var(--white); padding: 6px 8px; font-weight: 700; text-align: center; }
+table.plan th:first-child, table.plan td:first-child { text-align: left; white-space: nowrap; font-weight: 700; }
+table.plan td { border: 1px solid var(--gray-200); padding: 6px 8px; text-align: center; min-width: 34px; font-weight: 700; }
+table.plan-slots { width: 100%; table-layout: fixed; min-width: 640px; }
+table.plan-slots th:first-child { width: 104px; }
+table.plan-slots td { padding: 3px; min-width: 0; }
+table.plan-slots .sch-slot .tag { font-size: 11px; padding: 3px 4px; overflow-wrap: anywhere; hyphens: auto; }
+.q-context small { display: block; margin-top: 6px; color: var(--slate); }
+
 @media (max-width: 640px) {
   main { padding: 18px 14px 60px; }
   .card { padding: 20px 16px; }
@@ -215,7 +243,7 @@ table.sch td.fixed { padding-left: 10px; color: var(--slate); }
 <header class="app-header" id="appHeader">
   <div class="hdr-inner">
     <div>
-      <div class="hdr-title">Les conditions de vente</div>
+      <div class="hdr-title">Le bon de commande</div>
       <div class="hdr-mail" id="hdrMail"></div>
     </div>
     <div class="hdr-timer" id="timer" aria-label="Temps écoulé">00:00:00</div>
@@ -228,12 +256,12 @@ table.sch td.fixed { padding-left: 10px; color: var(--slate); }
   <section class="screen active" id="screenLogin">
     <div class="login-wrap card">
       <div class="login-kicker">Économie d'entreprise · Évaluation formative</div>
-      <h1 class="login-title">Les conditions de vente</h1>
-      <p class="login-lead">Qualité, quantité, prix et réductions, conditions de paiement et de livraison.</p>
+      <h1 class="login-title">Le bon de commande</h1>
+      <p class="login-lead">Lire et compléter un bon de commande, unité et quantité, mentions obligatoires, moyens de passer commande et suivi des commandes.</p>
       <div class="rules">
         <h2>Avant de commencer</h2>
         <ul>
-          <li>L'évaluation dure environ 1 h 15 : 10 questions de théorie, puis 29 exercices.</li>
+          <li>L'évaluation dure environ 1 h 15 : 10 questions de théorie, puis 24 exercices.</li>
           <li>Tu ne peux faire l'évaluation qu'une seule fois, et tu ne peux pas revenir en arrière.</li>
           <li>Les questions à choix (une réponse, plusieurs réponses, phrases fausses) ne comptent qu'une seule tentative. Les calculs et les exercices à étiquettes en comptent deux.</li>
           <li>Tu peux passer un exercice : tu gardes alors les points de ta meilleure tentative.</li>
@@ -265,7 +293,7 @@ table.sch td.fixed { padding-left: 10px; color: var(--slate); }
   <section class="screen" id="screenTransition">
     <div class="center-card card">
       <h1>Première partie terminée</h1>
-      <p>Tu vas maintenant faire 29 exercices, répartis en cinq thèmes. Lis bien chaque situation avant de répondre.</p>
+      <p>Tu vas maintenant faire 24 exercices, répartis en cinq thèmes. Lis bien chaque situation avant de répondre.</p>
       <p>Pour un calcul, écris seulement le nombre, sans séparateur de milliers. Le point et la virgule sont acceptés pour les décimales.</p>
       <div class="actions"><button class="btn btn-primary" id="btnStartEx">Commencer les exercices</button></div>
     </div>
@@ -314,9 +342,9 @@ table.sch td.fixed { padding-left: 10px; color: var(--slate); }
 // ============================================================
 const CONFIG = {
   SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzff9KEtrF9aH2ajzRvpPmePXDjOzLeOjrqpxJRO5uSKsfAMlY24A39eWO2tXBvO-eu/exec',
-  APP_NAME: 'Conditions de vente',
+  APP_NAME: 'Bon de commande',
   NB_QUIZ: 10,
-  NB_EXERCICES: 29,
+  NB_EXERCICES: 24,
   POINTS_MAX: 50,            // 10 (quiz) + 40 (exercices)
   POINTS_EX: 40,
   TENTATIVES_CHOIX: 1,       // qcm, multi, erreurs : une seule chance
@@ -329,14 +357,15 @@ const PARTIELS = ['classer', 'pairs', 'schema', 'multi', 'erreurs'];
 
 // ============================================================
 // RÉFÉRENTIEL DE COMPÉTENCES — codes stables sur toute l'année
+// (C1 à C6 : « Les conditions de vente » ; C7 à C12 : « Le bon de commande »)
 // ============================================================
 const COMPETENCES = {
-  C1: { libelle: "Décrire une marchandise (qualité et quantité)",  critere: 'Identifier / qualifier' },
-  C2: { libelle: 'Calculer les poids brut, net et la tare',         critere: 'Calculer' },
-  C3: { libelle: 'Distinguer les réductions de prix',               critere: 'Identifier / qualifier' },
-  C4: { libelle: 'Calculer un prix net après réductions',           critere: 'Calculer' },
-  C5: { libelle: 'Appliquer les conditions de paiement',            critere: 'Appliquer une procédure' },
-  C6: { libelle: 'Analyser les conditions de livraison',            critere: 'Connaître le cadre' }
+  C7:  { libelle: 'Lire et analyser un bon de commande',                  critere: 'Identifier / qualifier' },
+  C8:  { libelle: 'Distinguer unité et quantité',                         critere: 'Identifier / qualifier' },
+  C9:  { libelle: "Identifier les mentions obligatoires d'un bon de commande", critere: 'Connaître le cadre' },
+  C10: { libelle: 'Connaître les moyens et les règles pour passer commande', critere: 'Connaître le cadre' },
+  C11: { libelle: 'Compléter un bon de commande',                         critere: 'Appliquer une procédure' },
+  C12: { libelle: 'Suivre les commandes et réagir à un retard',           critere: 'Appliquer une procédure' }
 };
 
 const STATE = {
@@ -355,358 +384,358 @@ const STATE = {
 };
 
 const QUIZ = [
-  { id: 'Q1', comp: 'C1', points: 1,
-    text: "Pourquoi le vendeur et l'acheteur décrivent-ils la qualité d'un produit de façon complète ?",
-    options: [
-      "Pour identifier précisément le produit et éviter toute confusion lors de la commande.",
-      "Pour pouvoir calculer le poids net de la marchandise livrée.",
-      "Pour savoir si la livraison sera franco ou non franco.",
-      "Pour fixer le montant de la remise accordée au client."
-    ], correct: 0,
-    explication: "La qualité rassemble les caractéristiques qui identifient précisément le produit (désignation, référence, dimensions, composition, marque) : une description complète évite les confusions." },
-  { id: 'Q2', comp: 'C1', points: 1,
-    text: "Sur une fiche produit, le code « MU773ZD/A » ou le code EAN imprimé sur l'emballage correspond à…",
-    options: ["la référence du produit.", "la désignation du produit.", "la marque du produit.", "la composition du produit."],
+  { id: 'Q1', comp: 'C7', points: 1,
+    text: "Qui rédige (émet) le bon de commande ?",
+    options: ["L'acheteur, qui passe la commande.", "Le vendeur, qui prépare la livraison.", "Le transporteur, qui livre la marchandise.", "Le service comptable du vendeur, qui établit la facture."],
     correct: 0,
-    explication: "La référence est le code unique du produit (SKU, EAN…). La désignation est son nom, la marque son fabricant ou sa gamme." },
-  { id: 'Q3', comp: 'C2', points: 1,
-    text: "Dans une livraison de marchandises vendues au poids, que désigne la tare ?",
+    explication: "Le bon de commande est rédigé par l'acheteur et adressé au vendeur (fournisseur)." },
+  { id: 'Q2', comp: 'C7', points: 1,
+    text: "À quoi sert un bon de commande ?",
     options: [
-      "Le poids de l'emballage seul.",
-      "Le poids de la marchandise seule.",
-      "Le poids de la marchandise avec son emballage.",
-      "La différence entre le poids commandé et le poids livré."
+      "À indiquer précisément les marchandises commandées et à rappeler les conditions de vente convenues.",
+      "À réclamer au client le paiement des marchandises livrées.",
+      "À comparer les offres de plusieurs fournisseurs avant de choisir.",
+      "À prouver que les marchandises ont bien été livrées."
     ], correct: 0,
-    explication: "Tare = poids de l'emballage seul. La marchandise seule est le poids net ; marchandise + emballage, le poids brut." },
-  { id: 'Q4', comp: 'C3', points: 1,
-    text: "Un fournisseur livre une commande avec deux semaines de retard. Pour s'excuser, il déduit 30 € de la facture. De quelle réduction s'agit-il ?",
-    options: ["Un rabais.", "Une remise.", "Une ristourne.", "Un escompte."], correct: 0,
-    explication: "Le rabais est une réduction exceptionnelle qui compense un défaut, une non-conformité ou un retard de livraison." },
-  { id: 'Q5', comp: 'C3', points: 1,
-    text: "Laquelle de ces réductions est une réduction financière, et non commerciale ?",
-    options: ["L'escompte.", "Le rabais.", "La remise.", "La ristourne."], correct: 0,
-    explication: "Rabais, remise et ristourne sont des réductions commerciales. L'escompte est une réduction financière, liée au paiement anticipé." },
-  { id: 'Q6', comp: 'C3', points: 1,
-    text: "Une facture mentionne un escompte conditionnel de 2 %. Qu'est-ce que cela signifie ?",
+    explication: "Utilité du bon de commande : indiquer précisément les marchandises commandées et rappeler les conditions de vente convenues. Réclamer le paiement, c'est le rôle de la facture ; la comparaison des offres vient avant la commande." },
+  { id: 'Q3', comp: 'C8', points: 1,
+    text: "Sur un bon de commande, que désigne la colonne « Unité » ?",
     options: [
-      "L'acheteur ne peut déduire les 2 % que s'il paie dans le délai prévu.",
-      "Les 2 % sont déduits directement sur la facture, quel que soit le moment du paiement.",
-      "Les 2 % ne sont accordés qu'aux clients qui achètent une grande quantité.",
-      "Les 2 % sont calculés sur l'ensemble des achats de l'année."
+      "Le nombre d'objets qui forment un tout, c'est-à-dire la quantité minimale à acheter.",
+      "Le nombre d'unités commandées.",
+      "Le prix d'un seul article.",
+      "Le nombre total d'articles qui seront livrés."
     ], correct: 0,
-    explication: "Conditionnel : l'acheteur peut le déduire s'il paie plus tôt. Inconditionnel : déduit d'office sur la facture." },
-  { id: 'Q7', comp: 'C5', points: 1,
-    text: "En Belgique, selon la règle générale, jusqu'à quel montant peut-on payer un achat en espèces ?",
-    options: ["3 000 €", "1 000 €", "5 000 €", "10 000 €"], correct: 0,
-    explication: "Le paiement en espèces est limité à 3 000 € en Belgique (règle générale)." },
-  { id: 'Q8', comp: 'C5', points: 1,
-    text: "Que signifie un paiement « avec acompte » ?",
+    explication: "Unité = nombre d'objets qui forment un tout (quantité minimale à acheter). La quantité, elle, est le nombre d'unités commandées." },
+  { id: 'Q4', comp: 'C9', points: 1,
+    text: "Laquelle de ces mentions doit obligatoirement figurer sur un bon de commande ?",
+    options: ["La signature de l'acheteur.", "La signature du vendeur.", "Le numéro de la facture.", "La date de livraison effective."],
+    correct: 0,
+    explication: "La signature de l'acheteur fait partie des mentions obligatoires. La facture et la date de livraison effective n'existent pas encore au moment de la commande." },
+  { id: 'Q5', comp: 'C10', points: 1,
+    text: "En combien d'exemplaires, au minimum, le bon de commande doit-il être rédigé ?",
+    options: ["2", "1", "3", "4"], correct: 0,
+    explication: "2 exemplaires minimum : un pour l'acheteur (vérifier que la livraison correspond à la commande), un pour le vendeur (préparer la livraison et émettre la facture)." },
+  { id: 'Q6', comp: 'C10', points: 1,
+    text: "Pourquoi les conditions de vente doivent-elles figurer sur le bon de commande ?",
     options: [
-      "Le client paie une partie du prix (au moins 15 %) à la commande et le solde à la livraison.",
-      "Le client paie la totalité du prix au moment de la commande.",
-      "Le client paie le prix en plusieurs mensualités.",
-      "Le client paie la totalité au livreur, au moment de la livraison."
+      "Pour rappeler au vendeur les conditions convenues et éviter tout malentendu.",
+      "Pour permettre au vendeur de calculer le montant de la TVA.",
+      "Parce que le vendeur n'a encore fait aucune offre à l'acheteur.",
+      "Pour que le transporteur sache combien il doit facturer."
     ], correct: 0,
-    explication: "Avec acompte : paiement partiel (min. 15 %) à la commande, solde à la livraison. Les autres options décrivent « à la commande », « à tempérament » et « contre remboursement »." },
-  { id: 'Q9', comp: 'C6', points: 1,
-    text: "Une marchandise est expédiée « non franco » (port dû). Qu'est-ce que cela signifie ?",
+    explication: "Les conditions de vente rappellent au vendeur ce qui a été convenu (prix, délais, mode de paiement…) et évitent les malentendus." },
+  { id: 'Q7', comp: 'C12', points: 1,
+    text: "Pour une entreprise commerciale, quelle est la conséquence directe d'une rupture de stock ?",
     options: [
-      "Les frais de transport sont à charge de l'acheteur.",
-      "Les frais de transport sont à charge du vendeur.",
-      "La livraison est gratuite à partir d'un montant minimum.",
-      "Les frais de transport sont partagés entre le vendeur et l'acheteur."
+      "Elle ne peut plus vendre l'article manquant.",
+      "Sa chaîne de fabrication est bloquée.",
+      "Elle doit envoyer une mise en demeure à ses clients.",
+      "Elle perd le droit à l'escompte chez son fournisseur."
     ], correct: 0,
-    explication: "Non franco (port dû) : frais de transport à charge de l'acheteur. Franco : à charge du vendeur." },
-  { id: 'Q10', comp: 'C6', points: 1,
-    text: "Chez beaucoup de vendeurs, à quoi la livraison franco est-elle souvent conditionnée ?",
+    explication: "Entreprise commerciale : impossibilité de vendre. Le blocage de la fabrication concerne l'entreprise de production." },
+  { id: 'Q8', comp: 'C12', points: 1,
+    text: "Un fournisseur n'a toujours pas livré malgré deux rappels. Quel est le troisième rappel prévu par la procédure ?",
+    options: ["Une lettre recommandée avec mise en demeure.", "Un appel téléphonique.", "Un e-mail envoyé au représentant.", "L'annulation immédiate de la commande."],
+    correct: 0,
+    explication: "Procédure : 1er rappel par téléphone ou e-mail, 2e rappel par lettre ou e-mail formel, 3e rappel par lettre recommandée avec mise en demeure." },
+  { id: 'Q9', comp: 'C12', points: 1,
+    text: "Qu'est-ce qu'une mise en demeure ?",
     options: [
-      "À un montant minimum de commande.",
-      "À un paiement dans les 8 jours.",
-      "À un délai de livraison express.",
-      "Au choix du transporteur par l'acheteur."
+      "Un rappel officiel au fournisseur de son obligation de livrer.",
+      "La perte financière subie suite à une non-livraison.",
+      "La date de livraison prévue inscrite sur le planning.",
+      "L'annulation de la commande par l'acheteur."
     ], correct: 0,
-    explication: "La livraison franco est souvent conditionnée à un montant minimum de commande (ex. : Coolblue à partir de 20 €)." }
+    explication: "Mise en demeure : rappel officiel au fournisseur de son obligation de livrer. La perte financière, c'est le préjudice." },
+  { id: 'Q10', comp: 'C8', points: 1,
+    text: "Une ligne de bon de commande indique « Chargeurs — lot de 5 — Unité : 5 — Qté : 2 — P.U. : 89,95 € ». À quoi correspond le prix unitaire de 89,95 € ?",
+    options: ["Au prix d'un lot de 5 chargeurs.", "Au prix d'un seul chargeur.", "Au prix des 2 lots commandés.", "Au prix des 10 chargeurs livrés."],
+    correct: 0,
+    explication: "Le prix unitaire est le prix d'une unité de vente, ici un lot de 5 chargeurs. Total de la ligne = 2 × 89,95 = 179,90 €." }
 ];
 
 // ---------- Contextes d'exercices ----------
-const TH_A = "Thème A — La qualité et la quantité";
-const TH_B = "Thème B — Le prix et les réductions";
-const TH_C = "Thème C — Les conditions de paiement";
-const TH_D = "Thème D — Les conditions de livraison";
-const TH_E = "Thème E — Analyse de conditions générales";
+const TH_A = "Thème A — Lire un bon de commande";
+const TH_B = "Thème B — Unité et quantité";
+const TH_C = "Thème C — Mentions obligatoires et passation de la commande";
+const TH_D = "Thème D — Compléter un bon de commande";
+const TH_E = "Thème E — Suivre les commandes";
 
-const CTX_FAUTEUIL = `Une école commande l'article suivant : <em>« Fauteuil de bureau Sitwell, réf. SW-4410, hauteur 110 cm, assise en mousse et tissu recyclé »</em>.`;
-const CTX_POMMES = `La coopérative <strong>Vergers du Hainaut</strong> expédie une palette de pommes à un magasin de Mons. Le bon de livraison indique : poids brut 1 250 kg — tare 48 kg.`;
-const CTX_CIMENT = `Un grossiste en matériaux reçoit une livraison de ciment en sacs. Le bon de livraison indique : poids brut 18 400 kg — poids net 17 950 kg.`;
-const CTX_FARINE = `Un moulin expédie un carton contenant 24 sachets de farine de 1,5 kg chacun (poids de la farine seule). Les sachets vides et le carton pèsent ensemble 2,8 kg.`;
-const CTX_RIZ = `Un restaurant reçoit 12 sacs de riz. Chaque sac pèse 25,4 kg, emballage compris. Un sac vide pèse 0,4 kg.`;
-const CTX_IMPRIMANTE = `Un magasin d'informatique vend une imprimante au prix brut de 349,00 €. Il accorde une remise de 15 % à un client professionnel.`;
-const CTX_ARTICLE = `Un article coûte 200,00 € (prix brut). Le vendeur accorde une remise de 10 %, puis un escompte de 2 % pour paiement rapide.`;
-const CTX_BALLONS = `Le magasin <strong>Sprint Sports</strong> commande 40 ballons de football à 18,50 € pièce chez son grossiste.<br>Conditions du grossiste : remise de 10 % pour toute commande de plus de 500 € ; escompte de 2 % si la facture est payée dans les 8 jours.`;
-const CTX_ANNEE = `Sur toute l'année 2026, <strong>Sprint Sports</strong> a acheté pour 12 400,00 € chez ce grossiste. Chaque mois de janvier, le grossiste rembourse 1,5 % de tous les achats de l'année aux clients dont le total dépasse 10 000 €.`;
-const CTX_CUISINE = `Madame Dufour commande une cuisine équipée à 9 800 €. Le jour de la commande, elle verse 1 470 €. Elle paiera le reste le jour où la cuisine sera livrée.`;
-const CTX_SPORTZONE = `<div class="cg">
-<div class="cg-title">CONDITIONS GÉNÉRALES — SportZone.be</div>
-<p><strong>Prix :</strong> tous nos prix sont indiqués TVAC.</p>
-<p><strong>Livraison :</strong> franco domicile pour toute commande à partir de 75 €. En dessous, frais de port de 5,95 €. Délai : 2 à 4 jours ouvrables.</p>
-<p><strong>Paiement :</strong> Bancontact, Visa, virement bancaire, Payconiq. Particuliers : paiement à la commande. Professionnels : 30 jours fin de mois.</p>
-<p><strong>Réductions :</strong> remise de 8 % à partir de 400 € d'achat. Escompte de 2 % pour paiement dans les 8 jours (professionnels uniquement).</p>
+const CTX_BC = `<div class="bc">
+<div class="bc-top"><div><strong>BRICO-LUX SRL</strong><br>Rue de Mons 12 – 7300 BOUSSU<br>TVA BE0612.345.789 – BCE 0612.345.789<br>IBAN : BE12 0689 4521 7733</div>
+<div class="bc-sup">Fournisseur :<br><strong>OUTILPRO SA</strong><br>Avenue Louise 250<br>1050 BRUXELLES</div></div>
+<div class="bc-title">BON DE COMMANDE <span>N° BC-2026-078</span> <span>Date : 12/10/2026</span></div>
+<div class="bc-scroll"><table class="bc-t"><thead><tr><th>Référence</th><th>Désignation</th><th>Unité</th><th>Qté</th><th>P.U.</th></tr></thead><tbody>
+<tr><td>PER-18V</td><td>Perceuse-visseuse sans fil 18 V</td><td>1</td><td>4</td><td>89,00 €</td></tr>
+<tr><td>VIS-500</td><td>Vis à bois 4 × 40 (boîte de 500)</td><td>500</td><td>6</td><td>12,50 €</td></tr>
+<tr><td>GANT-L</td><td>Gants de travail taille L (paquet de 10 paires)</td><td>10</td><td>3</td><td>24,90 €</td></tr>
+</tbody></table></div>
+<div class="bc-cond"><strong>CONDITIONS DE VENTE</strong><br>Délai de livraison : 10 jours ouvrables — Mode de livraison : transporteur DHL<br>Délai de paiement : 60 jours fin de mois — Mode de paiement : virement bancaire</div>
+<div class="bc-sign">Signature : <em>Julie Lambert</em></div>
 </div>`;
+
+const CTX_PAPET = `Tu travailles chez <strong>PapetOffice SRL</strong> (rue de la Gare 8, 7330 Saint-Ghislain – TVA BE0734.210.558). Tu dois commander chez <strong>Bureau Direct SA</strong> (chaussée de Namur 120, 5000 Namur) :<br>
+1. 8 cartons de 5 ramettes de papier A4, à 21,50 € le carton ;<br>
+2. 3 lots de 12 surligneurs, à 9,60 € le lot ;<br>
+3. 2 déchiqueteuses de bureau, à 139,90 € l'une.<br>
+Conditions : livraison sous 5 jours ouvrables, franco de port, paiement à 30 jours date de facture, par virement bancaire.`;
+
+const CTX_SUIVI = `Tu travailles chez <strong>ÉlectroMons SRL</strong>. Voici les commandes du mois de mars 2026 :<br>
+• n° 301 chez Philips : commandée le 02/03, livraison prévue le 09/03, livrée le 09/03 ;<br>
+• n° 302 chez Bosch : commandée le 04/03, livraison prévue le 11/03, livrée le 13/03 ;<br>
+• n° 303 chez Miele : commandée le 06/03, livraison prévue le 13/03, 1er rappel le 16/03, livrée le 18/03.`;
+
+const CTX_PLANNING = `Voici le planning de suivi des commandes d'<strong>ÉlectroMons SRL</strong> pour avril 2026.
+<div class="plan-wrap"><table class="plan"><thead><tr><th>Commande</th><th>01</th><th>03</th><th>07</th><th>08</th><th>09</th><th>10</th><th>13</th><th>14</th><th>15</th><th>16</th><th>20</th><th>23</th></tr></thead><tbody>
+<tr><td>401 – Dyson</td><td>C</td><td></td><td></td><td>P/L</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>402 – Siemens</td><td></td><td>C</td><td></td><td></td><td></td><td>P</td><td>R</td><td></td><td>L</td><td></td><td></td><td></td></tr>
+<tr><td>403 – Samsung</td><td></td><td></td><td>C</td><td></td><td></td><td></td><td></td><td>P</td><td>R</td><td></td><td>R</td><td>L</td></tr>
+<tr><td>404 – Braun</td><td></td><td></td><td></td><td></td><td>C</td><td></td><td></td><td></td><td>L</td><td>P</td><td></td><td></td></tr>
+</tbody></table></div>
+<small>Légende : C = Commande envoyée | P = Livraison prévue | L = Livraison réelle | R = Rappel</small>`;
+
+const LAYOUT_BC = `<div class="bc">
+<div class="bc-top"><div><strong>PAPETOFFICE SRL</strong><br>Rue de la Gare 8 – 7330 SAINT-GHISLAIN<br>TVA BE0734.210.558</div>
+<div class="bc-sup">Fournisseur :<br><strong>BUREAU DIRECT SA</strong><br>Chaussée de Namur 120<br>5000 NAMUR</div></div>
+<div class="bc-title">BON DE COMMANDE <span>N° 2026-014</span> <span>Date : (date du jour)</span></div>
+<div class="bc-scroll"><table class="bc-t"><thead><tr><th>Référence</th><th>Désignation</th><th>Unité</th><th>Qté</th><th>P.U.</th></tr></thead><tbody>
+<tr><td>PAP-A4</td><td>Papier A4 80 g, carton de ramettes</td><td>{{0}}</td><td>{{1}}</td><td>21,50 €</td></tr>
+<tr><td>SURL-12</td><td>Surligneurs fluo, lot</td><td>{{2}}</td><td>{{3}}</td><td>9,60 €</td></tr>
+<tr><td>DECH-P4</td><td>Déchiqueteuse de bureau</td><td>{{4}}</td><td>{{5}}</td><td>139,90 €</td></tr>
+</tbody></table></div>
+<div class="bc-cond"><strong>CONDITIONS DE VENTE</strong>
+<div class="cond-grid"><span>Délai de livraison :</span>{{6}}<span>Livraison :</span>{{7}}<span>Délai de paiement :</span>{{8}}<span>Mode de paiement :</span><span class="fixed">Virement bancaire</span></div></div>
+</div>`;
+
+const LAYOUT_PLAN = `<div class="plan-wrap"><table class="plan plan-slots"><thead><tr><th>Commande</th><th>02</th><th>04</th><th>06</th><th>09</th><th>11</th><th>13</th><th>16</th><th>18</th></tr></thead><tbody>
+<tr><td>301 – Philips</td><td>{{0}}</td><td></td><td></td><td>{{1}}</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>302 – Bosch</td><td></td><td>{{2}}</td><td></td><td></td><td>{{3}}</td><td>{{4}}</td><td></td><td></td></tr>
+<tr><td>303 – Miele</td><td></td><td></td><td>{{5}}</td><td></td><td></td><td>{{6}}</td><td>{{7}}</td><td>{{8}}</td></tr>
+</tbody></table></div>`;
 
 const EXERCISES = [
   // ---------------- THÈME A ----------------
-  { id: 'EX1', comp: 'C1', theme: TH_A, partie: 'Thème A — Trier qualité et quantité',
-    type: 'classer', points: 2,
-    text: "Une fiche de commande mélange des informations sur plusieurs articles. Classe chaque information dans la bonne colonne.",
-    qsub: "Clique une étiquette, puis la colonne où tu veux la déposer. Clique une étiquette placée pour la renvoyer dans la réserve.",
-    bins: [ { name: "Qualité" }, { name: "Quantité" } ],
-    items: [
-      { t: "Laine mérinos", b: 0 },
-      { t: "Réf. MU773ZD/A", b: 0 },
-      { t: "Coloris bordeaux", b: 0 },
-      { t: "Format A4", b: 0 },
-      { t: "Marque Oxford", b: 0 },
-      { t: "5 stylos", b: 1 },
-      { t: "2 kg de pommes", b: 1 },
-      { t: "1,5 l d'eau", b: 1 },
-      { t: "50 m² de parquet", b: 1 }
-    ] },
-  { id: 'EX2', comp: 'C1', theme: TH_A, partie: 'Thème A — Éléments de la qualité (fauteuil)',
-    type: 'pairs', points: 2, context: CTX_FAUTEUIL,
-    text: "Associe chaque partie de la description à ce qu'elle indique.",
+  { id: 'EX1', comp: 'C7', theme: TH_A, partie: 'Thème A — Émetteur du bon de commande Brico-Lux',
+    type: 'qcm', points: 1, context: CTX_BC,
+    text: "Qui a rédigé ce bon de commande ?",
+    options: ["Brico-Lux SRL", "OutilPro SA", "DHL", "Julie Lambert, pour ses achats personnels"], correct: 0,
+    corrige: "Le bon de commande est émis par l'acheteur, Brico-Lux SRL ; Julie Lambert le signe en tant que représentante de l'acheteur." },
+  { id: 'EX2', comp: 'C7', theme: TH_A, partie: 'Thème A — Identifier les éléments du bon de commande Brico-Lux',
+    type: 'pairs', points: 2, context: CTX_BC,
+    text: "Associe chaque information de ce bon de commande à l'élément qu'elle représente.",
     qsub: "Clique une étiquette dans la réserve, puis l'emplacement qui lui correspond. Toutes les étiquettes ne sont pas utilisées.",
     slots: [
-      { lbl: "Fauteuil de bureau", ans: "La désignation" },
-      { lbl: "Sitwell", ans: "La marque" },
-      { lbl: "SW-4410", ans: "La référence" },
-      { lbl: "Hauteur 110 cm", ans: "Les dimensions" },
-      { lbl: "Mousse et tissu recyclé", ans: "La composition" }
+      { lbl: "BRICO-LUX SRL – Rue de Mons 12 – 7300 Boussu", ans: "Nom et adresse de l'acheteur" },
+      { lbl: "TVA BE0612.345.789 – BCE 0612.345.789", ans: "Mentions légales obligatoires" },
+      { lbl: "OUTILPRO SA – Avenue Louise 250 – 1050 Bruxelles", ans: "Nom et adresse du vendeur" },
+      { lbl: "N° BC-2026-078", ans: "Numéro du document" },
+      { lbl: "60 jours fin de mois", ans: "Conditions de vente" },
+      { lbl: "Julie Lambert", ans: "Signature de l'acheteur" }
     ],
-    bank: ["La désignation", "La marque", "La référence", "Les dimensions", "La composition", "La quantité", "Le poids net"] },
-  { id: 'EX3', comp: 'C2', theme: TH_A, partie: 'Thème A — Poids net (palette de pommes)',
-    type: 'numeric', points: 1, context: CTX_POMMES,
-    text: "Quel est le poids net de la palette ?", answer: 1202, tolerance: 0.01, unit: 'kg',
-    corrige: "Poids net = poids brut − tare = 1 250 − 48 = 1 202 kg" },
-  { id: 'EX4', comp: 'C2', theme: TH_A, partie: 'Thème A — Tare (ciment)',
-    type: 'numeric', points: 1, context: CTX_CIMENT,
-    text: "Quelle est la tare de cette livraison ?", answer: 450, tolerance: 0.01, unit: 'kg',
-    corrige: "Tare = poids brut − poids net = 18 400 − 17 950 = 450 kg" },
-  { id: 'EX5', comp: 'C2', theme: TH_A, partie: 'Thème A — Poids brut (carton de farine)',
-    type: 'numeric', points: 1, context: CTX_FARINE,
-    text: "Quel est le poids brut du carton ?", answer: 38.8, tolerance: 0.01, unit: 'kg',
-    corrige: "Poids net = 24 × 1,5 = 36 kg ; poids brut = poids net + tare = 36 + 2,8 = 38,8 kg" },
-  { id: 'EX6', comp: 'C2', theme: TH_A, partie: 'Thème A — Poids net total (sacs de riz)',
-    type: 'numeric', points: 1, context: CTX_RIZ,
-    text: "Quel est le poids net total du riz livré ?", answer: 300, tolerance: 0.01, unit: 'kg',
-    corrige: "Poids net d'un sac = 25,4 − 0,4 = 25 kg ; 12 × 25 = 300 kg (ou : brut 304,8 − tare 4,8 = 300 kg)" },
+    bank: ["Nom et adresse de l'acheteur", "Mentions légales obligatoires", "Nom et adresse du vendeur", "Numéro du document",
+           "Conditions de vente", "Signature de l'acheteur", "Signature du vendeur", "Numéro de la facture"] },
 
   // ---------------- THÈME B ----------------
-  { id: 'EX7', comp: 'C3', theme: TH_B, partie: 'Thème B — Trier rabais, remise, ristourne',
-    type: 'classer', points: 2,
-    text: "Voici neuf situations. Classe chaque réduction dans la bonne colonne.",
-    qsub: "Clique une étiquette, puis la colonne où tu veux la déposer. Clique une étiquette placée pour la renvoyer dans la réserve.",
-    bins: [ { name: "Rabais" }, { name: "Remise" }, { name: "Ristourne" } ],
-    items: [
-      { t: "Un canapé est livré avec une tache sur l'accoudoir : le vendeur déduit 80 €.", b: 0 },
-      { t: "Des chaussures livrées en pointure 42 au lieu de 43 : le client les garde, avec 15 € de réduction.", b: 0 },
-      { t: "Un colis arrive avec cinq jours de retard : le vendeur déduit 20 € de la facture.", b: 0 },
-      { t: "−10 % pour l'achat de 200 cahiers.", b: 1 },
-      { t: "−30 % sur tout le rayon pendant les soldes d'hiver.", b: 1 },
-      { t: "Un plombier obtient −8 % grâce à sa carte de client professionnel.", b: 1 },
-      { t: "En janvier, le fournisseur rembourse 2 % de tout ce que le client a acheté l'année précédente.", b: 2 },
-      { t: "Un club sportif reçoit en fin de saison 5 % du total de ses achats de la saison.", b: 2 },
-      { t: "Si les achats du trimestre dépassent 3 000 € au total, le client reçoit 1 % de ce total.", b: 2 }
-    ] },
-  { id: 'EX8', comp: 'C3', theme: TH_B, partie: "Thème B — Repérer les escomptes",
-    type: 'multi', points: 1,
-    text: "Sélectionne toutes les situations qui décrivent un escompte.",
-    qsub: "Plusieurs réponses sont correctes.",
-    options: [
-      "2 % de réduction si la facture est payée dans les 10 jours au lieu de 30.",
-      "Le client paie comptant et le vendeur déduit 1 % du montant.",
-      "3 % sont déduits d'office sur la facture parce que le client paie au comptant.",
-      "5 % de réduction parce que le client achète 500 pièces.",
-      "20 € de réduction car l'article livré est abîmé.",
-      "3 % remboursés en fin d'année sur l'ensemble des achats.",
-      "Le client paie en trois mensualités, sans frais."
+  { id: 'EX3', comp: 'C8', theme: TH_B, partie: 'Thème B — Nombre de paires de gants (Brico-Lux)',
+    type: 'numeric', points: 1, context: CTX_BC,
+    text: "Combien de paires de gants Brico-Lux va-t-elle recevoir ?", answer: 30, tolerance: 0.01, unit: 'paires',
+    corrige: "Unité 10 (paquet de 10 paires) × quantité 3 = 30 paires" },
+  { id: 'EX4', comp: 'C8', theme: TH_B, partie: 'Thème B — Nombre de vis (Brico-Lux)',
+    type: 'numeric', points: 1, context: CTX_BC,
+    text: "Combien de vis Brico-Lux va-t-elle recevoir au total ?", answer: 3000, tolerance: 0.01, unit: 'vis',
+    corrige: "Unité 500 (boîte de 500) × quantité 6 = 3 000 vis" },
+  { id: 'EX5', comp: 'C8', theme: TH_B, partie: 'Thème B — Unité, quantité et nombre d\'articles (vin)',
+    type: 'pairs', points: 2,
+    context: `Le restaurant <strong>La Table du Borinage</strong> commande 3 cartons de 12 bouteilles de vin.`,
+    text: "Associe chaque case à compléter au bon nombre.",
+    qsub: "Clique une étiquette dans la réserve, puis l'emplacement qui lui correspond. Toutes les étiquettes ne sont pas utilisées.",
+    slots: [
+      { lbl: "Ce que le restaurant inscrit dans la colonne « Unité »", ans: "12" },
+      { lbl: "Ce que le restaurant inscrit dans la colonne « Qté »", ans: "3" },
+      { lbl: "Le nombre de bouteilles qui seront livrées", ans: "36" }
     ],
-    multi: [0, 1, 2] },
-  { id: 'EX9', comp: 'C3', theme: TH_B, partie: 'Thème B — Compléter le tableau récapitulatif des réductions',
-    type: 'schema', points: 2,
-    text: "Complète le tableau récapitulatif des réductions.",
-    qsub: "Clique un mot dans la réserve, puis la case où il doit aller. Tous les mots de la réserve ne sont pas utilisés.",
-    answers: ["Défaut, retard", "Exceptionnellement", "Quantité, promo", "Régulièrement",
-              "Fidélité", "Périodiquement", "Financière", "Paiement anticipé", "Si paiement rapide"],
-    bank: ["Défaut, retard", "Exceptionnellement", "Quantité, promo", "Régulièrement",
-           "Fidélité", "Périodiquement", "Financière", "Paiement anticipé", "Si paiement rapide",
-           "Paiement échelonné", "À la commande"],
-    slotNames: ["Rabais — Raison", "Rabais — Quand ?", "Remise — Raison", "Remise — Quand ?",
-                "Ristourne — Raison", "Ristourne — Quand ?", "Escompte — Type", "Escompte — Raison", "Escompte — Quand ?"] },
-  { id: 'EX10', comp: 'C3', theme: TH_B, partie: 'Thème B — Affirmations fausses (note Bureau Plus)',
-    type: 'erreurs', points: 3,
-    docTitle: "Note interne — Bureau Plus",
-    docMeta: "De : responsable des ventes · À : nouveaux vendeurs",
-    text: "Le responsable des ventes de Bureau Plus a rédigé cette note pour les nouveaux vendeurs. Clique sur les affirmations qui sont fausses.",
-    qsub: "Clique une phrase pour la signaler ; clique à nouveau pour annuler ta sélection.",
-    segments: [
-      { t: "Chez Bureau Plus, une remise peut être accordée à certains clients privilégiés, comme les professionnels." },
-      { t: "Lorsqu'un client achète 100 ramettes de papier, il reçoit automatiquement un rabais de 10 %.",
-        err: true, fix: "Une réduction accordée en raison de la quantité achetée est une remise, pas un rabais." },
-      { t: "Si une imprimante est livrée avec une griffe sur le capot, le vendeur peut proposer un rabais." },
-      { t: "Un rabais peut aussi être accordé lorsque la marchandise livrée ne correspond pas à la commande." },
-      { t: "Nos clients fidèles reçoivent chaque trimestre un escompte de 3 % sur le total de leurs achats du trimestre écoulé.",
-        err: true, fix: "Une réduction sur l'ensemble des achats d'une période est une ristourne, pas un escompte." },
-      { t: "L'escompte récompense le client qui paie avant l'échéance prévue." },
-      { t: "L'escompte est une réduction commerciale, comme la remise et la ristourne.",
-        err: true, fix: "L'escompte est une réduction financière." },
-      { t: "Un escompte inconditionnel est directement déduit sur la facture." },
-      { t: "Pendant les soldes, nous accordons une ristourne de 20 % sur les classeurs.",
-        err: true, fix: "Une réduction liée à des soldes ou à une promotion est une remise." },
-      { t: "La remise est une réduction habituelle, accordée régulièrement." }
+    bank: ["12", "3", "36", "15", "1"] },
+  { id: 'EX6', comp: 'C8', theme: TH_B, partie: 'Thème B — Quantité à commander (canettes)',
+    type: 'numeric', points: 1,
+    context: `Un snack a besoin de 48 canettes de soda. Son fournisseur vend les canettes uniquement par packs de 6.`,
+    text: "Quelle quantité le snack doit-il inscrire sur son bon de commande ?", answer: 8, tolerance: 0.01, unit: '',
+    corrige: "48 canettes ÷ 6 (unité) = 8 packs : quantité 8" },
+  { id: 'EX7', comp: 'C8', theme: TH_B, partie: 'Thème B — Nombre de chaussettes (paires)',
+    type: 'numeric', points: 1,
+    context: `Sur le bon de commande d'un club de hockey, on lit : « Chaussettes de sport — Unité : paire — Qté : 7 ».`,
+    text: "Combien de chaussettes le club va-t-il recevoir ?", answer: 14, tolerance: 0.01, unit: 'chaussettes',
+    corrige: "1 paire = 2 chaussettes ; 7 paires = 14 chaussettes" },
+  { id: 'EX8', comp: 'C8', theme: TH_B, partie: 'Thème B — Trier unité et quantité',
+    type: 'classer', points: 3,
+    text: "Classe chaque proposition dans la bonne colonne.",
+    qsub: "Clique une étiquette, puis la colonne où tu veux la déposer. Clique une étiquette placée pour la renvoyer dans la réserve.",
+    bins: [ { name: "Unité" }, { name: "Quantité" } ],
+    items: [
+      { t: "Le nombre d'objets qui forment un tout", b: 0 },
+      { t: "La quantité minimale à acheter", b: 0 },
+      { t: "Le « 5 » dans « un lot de 5 chargeurs »", b: 0 },
+      { t: "Le « 10 » dans « un carton de 10 ramettes »", b: 0 },
+      { t: "Le « 6 » dans « un pack de 6 canettes »", b: 0 },
+      { t: "Le nombre d'unités commandées", b: 1 },
+      { t: "Le « 2 » dans « 2 lots de chargeurs »", b: 1 },
+      { t: "Le « 4 » dans « 4 cartons de ramettes »", b: 1 },
+      { t: "Le « 3 » dans « 3 packs de canettes »", b: 1 }
     ] },
-  { id: 'EX11', comp: 'C4', theme: TH_B, partie: 'Thème B — Montant de la remise (imprimante)',
-    type: 'numeric', points: 1, context: CTX_IMPRIMANTE,
-    text: "Quel est le montant de la remise ?", answer: 52.35, tolerance: 0.01, unit: '€',
-    corrige: "Remise = 349,00 × 15 / 100 = 52,35 €" },
-  { id: 'EX12', comp: 'C4', theme: TH_B, partie: "Thème B — Prix net (imprimante)",
-    type: 'numeric', points: 1, context: CTX_IMPRIMANTE,
-    text: "Quel est le prix net de l'imprimante ?", answer: 296.65, tolerance: 0.01, unit: '€',
-    corrige: "Prix net = 349,00 − 52,35 = 296,65 €" },
-  { id: 'EX13', comp: 'C4', theme: TH_B, partie: "Thème B — Base de calcul de l'escompte",
-    type: 'qcm', points: 1, context: CTX_ARTICLE,
-    text: "Sur quel montant l'escompte de 2 % est-il calculé ?",
-    options: [
-      "Sur 180,00 €, le montant obtenu après la remise.",
-      "Sur 200,00 €, le prix brut.",
-      "Sur 20,00 €, le montant de la remise.",
-      "Sur 176,40 €, le montant net à payer."
-    ], correct: 0,
-    corrige: "L'escompte se calcule sur le net commercial : 200 − 20 = 180 € ; escompte = 180 × 2 / 100 = 3,60 € ; net à payer = 176,40 €." },
-  { id: 'EX14', comp: 'C4', theme: TH_B, partie: 'Thème B — Prix brut (ballons)',
-    type: 'numeric', points: 1, context: CTX_BALLONS,
-    text: "Quel est le prix brut de la commande ?", answer: 740, tolerance: 0.01, unit: '€',
-    corrige: "Prix brut = 40 × 18,50 = 740,00 €" },
-  { id: 'EX15', comp: 'C4', theme: TH_B, partie: 'Thème B — Net commercial (ballons)',
-    type: 'numeric', points: 1, context: CTX_BALLONS,
-    text: "Quel est le net commercial ?", answer: 666, tolerance: 0.01, unit: '€',
-    corrige: "Remise = 740,00 × 10 / 100 = 74,00 € (commande > 500 €) ; net commercial = 740,00 − 74,00 = 666,00 €" },
-  { id: 'EX16', comp: 'C4', theme: TH_B, partie: 'Thème B — Net à payer, paiement à 5 jours (ballons)',
-    type: 'numeric', points: 1, context: CTX_BALLONS,
-    text: "Sprint Sports paie la facture 5 jours après l'avoir reçue. Quel est le net à payer ?", answer: 652.68, tolerance: 0.01, unit: '€',
-    corrige: "Escompte = 666,00 × 2 / 100 = 13,32 € ; net à payer = 666,00 − 13,32 = 652,68 €" },
-  { id: 'EX17', comp: 'C4', theme: TH_B, partie: "Thème B — Net à payer, paiement à 20 jours (ballons)",
-    type: 'numeric', points: 1, context: CTX_BALLONS,
-    text: "Imagine maintenant que Sprint Sports paie la facture 20 jours après l'avoir reçue. Quel montant doit-il payer ?", answer: 666, tolerance: 0.01, unit: '€',
-    corrige: "Paiement après 8 jours : pas d'escompte. Le client paie le net commercial, 666,00 €." },
-  { id: 'EX18', comp: 'C4', theme: TH_B, partie: 'Thème B — Montant de la ristourne annuelle',
-    type: 'numeric', points: 1, context: CTX_ANNEE,
-    text: "Quel montant le grossiste va-t-il rembourser à Sprint Sports ?", answer: 186, tolerance: 0.01, unit: '€',
-    corrige: "Total > 10 000 € : ristourne = 12 400 × 1,5 / 100 = 186,00 €" },
 
   // ---------------- THÈME C ----------------
-  { id: 'EX19', comp: 'C5', theme: TH_C, partie: 'Thème C — Associer les échéances de paiement',
-    type: 'pairs', points: 2,
-    text: "Associe chaque situation à l'échéance de paiement qui lui correspond.",
-    qsub: "Clique une étiquette dans la réserve, puis l'emplacement qui lui correspond. Toutes les étiquettes ne sont pas utilisées.",
-    slots: [
-      { lbl: "Le client paie le livreur au moment où il reçoit la marchandise.", ans: "Contre remboursement" },
-      { lbl: "Le client paie dans les 8 jours qui suivent la réception de la facture.", ans: "Au comptant" },
-      { lbl: "Le client paie tout de suite, dès qu'il reçoit la facture.", ans: "Au grand comptant" },
-      { lbl: "Le client rembourse son achat en plusieurs mensualités.", ans: "À tempérament" },
-      { lbl: "Le client paie après un délai convenu, par exemple 60 jours.", ans: "À terme" }
-    ],
-    bank: ["Contre remboursement", "Au comptant", "Au grand comptant", "À tempérament", "À terme", "Avec acompte", "À la commande"] },
-  { id: 'EX20', comp: 'C5', theme: TH_C, partie: 'Thème C — Dates limites de paiement',
-    type: 'pairs', points: 2,
-    text: "Pour chaque facture, trouve la date limite de paiement.",
-    qsub: "Clique une date dans la réserve, puis la facture qui lui correspond. Toutes les dates ne sont pas utilisées.",
-    slots: [
-      { lbl: "Facture du 12/02/2026, payable à 30 jours date de facture", ans: "14/03/2026" },
-      { lbl: "Facture du 20/10/2026, payable au comptant", ans: "28/10/2026" },
-      { lbl: "Facture du 31/10/2026, payable à 30 jours fin de mois", ans: "30/11/2026" },
-      { lbl: "Facture du 05/05/2026, payable à 60 jours date de facture", ans: "04/07/2026" }
-    ],
-    bank: ["14/03/2026", "28/10/2026", "30/11/2026", "04/07/2026", "12/03/2026", "05/07/2026", "31/12/2026"] },
-  { id: 'EX21', comp: 'C5', theme: TH_C, partie: 'Thème C — Identifier la condition de paiement (cuisine)',
-    type: 'qcm', points: 1, context: CTX_CUISINE,
-    text: "Quelle condition de paiement est appliquée ?",
-    options: ["Avec acompte.", "À tempérament.", "Contre remboursement.", "À la commande."], correct: 0,
-    corrige: "1 470 / 9 800 = 15 % versés à la commande, solde à la livraison : paiement avec acompte." },
-  { id: 'EX22', comp: 'C5', theme: TH_C, partie: 'Thème C — Repérer les moyens de paiement',
-    type: 'multi', points: 1,
-    text: "Sélectionne tous les moyens de paiement.",
+  { id: 'EX9', comp: 'C9', theme: TH_C, partie: 'Thème C — Sélectionner les mentions obligatoires',
+    type: 'multi', points: 2,
+    text: "Sélectionne toutes les mentions obligatoires d'un bon de commande.",
     qsub: "Plusieurs réponses sont correctes.",
-    options: ["Virement bancaire", "Domiciliation bancaire", "Payconiq", "Carte Bancontact",
-              "À tempérament", "Au comptant", "À 30 jours fin de mois", "Franco de port"],
-    multi: [0, 1, 2, 3] },
-  { id: 'EX23', comp: 'C5', theme: TH_C, partie: 'Thème C — Affirmations fausses (mail du stagiaire)',
+    options: [
+      "Le nom et l'adresse de l'acheteur",
+      "Le numéro de TVA de l'acheteur",
+      "Le nom et l'adresse du vendeur",
+      "Le numéro et la date du bon de commande",
+      "Les conditions de livraison et de paiement",
+      "La signature de l'acheteur",
+      "La signature du vendeur",
+      "Le numéro de la facture",
+      "La date de livraison effective",
+      "Le montant déjà payé par l'acheteur"
+    ],
+    multi: [0, 1, 2, 3, 4, 5] },
+  { id: 'EX10', comp: 'C9', theme: TH_C, partie: 'Thème C — Affirmations fausses (fiche de révision)',
     type: 'erreurs', points: 3,
-    docTitle: "Mail envoyé à M. Lambert",
-    docMeta: "De : stagiaire, service comptabilité · Objet : votre facture n° 2026-118",
-    text: "Un stagiaire a rédigé ce mail pour expliquer à un client les conditions de paiement de l'entreprise. Clique sur les affirmations qui sont fausses.",
+    docTitle: "Fiche de révision — Le bon de commande",
+    docMeta: "Rédigée par un élève de l'an dernier",
+    text: "Un élève de l'an dernier a rédigé cette fiche de révision. Clique sur les affirmations qui sont fausses.",
     qsub: "Clique une phrase pour la signaler ; clique à nouveau pour annuler ta sélection.",
     segments: [
-      { t: "Votre facture n° 2026-118, d'un montant de 6 450 €, est datée du 15 janvier 2026 et payable à 30 jours date de facture." },
-      { t: "Vous devez donc nous payer au plus tard le 14 février 2026." },
-      { t: "Si vous préférez payer au comptant, vous disposez de 30 jours après la réception de la facture.",
-        err: true, fix: "Au comptant : paiement dans les 8 jours après la réception de la facture." },
-      { t: "Vous pouvez payer par virement bancaire ou par domiciliation bancaire." },
-      { t: "Vous pouvez également régler toute cette facture en espèces à notre comptoir.",
-        err: true, fix: "En Belgique, le paiement en espèces est limité à 3 000 € (règle générale) : impossible pour 6 450 €." },
-      { t: "Pour votre prochaine commande, nous vous proposons un paiement à tempérament : vous paierez la totalité au moment de la livraison.",
-        err: true, fix: "À tempérament = paiement échelonné en plusieurs mensualités. Payer à la livraison, c'est « contre remboursement »." },
-      { t: "Si vous choisissez de verser un acompte, il devra représenter au moins 15 % du montant de la commande." },
-      { t: "Dans ce cas, le solde sera payé 60 jours après la livraison.",
-        err: true, fix: "Avec acompte : le solde est payé à la livraison." },
-      { t: "Enfin, une facture payable au grand comptant doit être réglée dès sa réception." }
+      { t: "Le bon de commande est un document commercial par lequel l'acheteur indique au vendeur les articles qu'il souhaite acquérir." },
+      { t: "Il doit identifier l'acheteur : son nom, son adresse, son numéro de TVA et son numéro BCE." },
+      { t: "Le bon de commande ne doit pas être daté : seule la date de livraison compte.",
+        err: true, fix: "Le numéro et la date du bon de commande sont des mentions obligatoires." },
+      { t: "Chaque bon de commande porte un numéro." },
+      { t: "Pour décrire les articles, la désignation suffit : la référence, l'unité et le prix ne sont pas nécessaires.",
+        err: true, fix: "Description des articles : référence, désignation, unité, quantité et prix." },
+      { t: "Les conditions de livraison et de paiement doivent aussi y figurer." },
+      { t: "Le bon de commande doit être signé par le vendeur.",
+        err: true, fix: "C'est la signature de l'acheteur qui est obligatoire." },
+      { t: "Le numéro de TVA de l'acheteur fait partie des mentions légales obligatoires." },
+      { t: "Pour le vendeur, il suffit d'indiquer son nom ; son adresse n'est pas nécessaire.",
+        err: true, fix: "Identification du vendeur : nom et adresse." },
+      { t: "Le bon de commande précise la quantité commandée de chaque article." }
     ] },
-
-  // ---------------- THÈME D ----------------
-  { id: 'EX24', comp: 'C6', theme: TH_D, partie: 'Thème D — Trier franco et non franco',
-    type: 'classer', points: 1,
-    text: "Qui paie le transport ? Classe chaque situation dans la bonne colonne.",
-    qsub: "Clique une étiquette, puis la colonne où tu veux la déposer. Clique une étiquette placée pour la renvoyer dans la réserve.",
-    bins: [ { name: "Franco" }, { name: "Non franco" } ],
-    items: [
-      { t: "Livraison gratuite", b: 0 },
-      { t: "Commande de 65 € sur un site qui livre gratuitement à partir de 50 €", b: 0 },
-      { t: "Le vendeur paie lui-même la facture du transporteur", b: 0 },
-      { t: "Franco domicile", b: 0 },
-      { t: "Port dû", b: 1 },
-      { t: "Commande de 42 € sur un site qui livre gratuitement à partir de 50 €", b: 1 },
-      { t: "Des frais d'envoi de 5,90 € sont ajoutés à la facture du client", b: 1 },
-      { t: "L'acheteur paie les frais de transport au transporteur, à la réception du colis", b: 1 }
-    ] },
-  { id: 'EX25', comp: 'C6', theme: TH_D, partie: 'Thème D — Voies de transport',
-    type: 'pairs', points: 1,
-    text: "Associe chaque transport à la voie utilisée.",
+  { id: 'EX11', comp: 'C10', theme: TH_C, partie: 'Thème C — Moyens de passer commande',
+    type: 'pairs', points: 2,
+    text: "Associe chaque situation au moyen utilisé pour passer commande.",
     qsub: "Clique une étiquette dans la réserve, puis l'emplacement qui lui correspond. Toutes les étiquettes ne sont pas utilisées.",
     slots: [
-      { lbl: "Des conteneurs voyagent d'Anvers à Montréal à bord d'un navire.", ans: "Voie maritime" },
-      { lbl: "Une barge chargée de charbon descend la Meuse jusqu'à Liège.", ans: "Voie fluviale" },
-      { lbl: "SNCB Logistics achemine des voitures neuves par le rail.", ans: "Voie ferroviaire" }
+      { lbl: "Un garagiste se connecte au portail réservé aux professionnels de son fournisseur de pièces.", ans: "Plateforme B2B" },
+      { lbl: "Depuis son ordinateur, un client ajoute un casque à son panier sur le site coolblue.be.", ans: "Site web e-commerce" },
+      { lbl: "La secrétaire envoie au fournisseur un message avec le bon de commande en PDF.", ans: "E-mail avec bon de commande en pièce jointe" },
+      { lbl: "Le représentant d'une brasserie passe au café et note lui-même la commande.", ans: "En magasin ou passage d'un représentant" }
     ],
-    bank: ["Voie maritime", "Voie fluviale", "Voie ferroviaire", "Voie terrestre", "Voie aérienne"] },
+    bank: ["Plateforme B2B", "Site web e-commerce", "E-mail avec bon de commande en pièce jointe",
+           "En magasin ou passage d'un représentant", "Application mobile", "Téléphone"] },
+  { id: 'EX12', comp: 'C10', theme: TH_C, partie: 'Thème C — Utilité de l\'exemplaire du vendeur',
+    type: 'qcm', points: 1, context: CTX_BC,
+    text: "OutilPro SA reçoit son exemplaire de ce bon de commande. À quoi lui sert-il ?",
+    options: [
+      "À préparer la livraison et à émettre la facture.",
+      "À vérifier que la livraison reçue correspond à la commande.",
+      "À comparer son offre avec celles de ses concurrents.",
+      "À payer la marchandise dans le délai convenu."
+    ], correct: 0,
+    corrige: "Exemplaire du vendeur : préparer la livraison et émettre la facture. Vérifier la livraison, c'est le rôle de l'exemplaire de l'acheteur." },
+
+  // ---------------- THÈME D ----------------
+  { id: 'EX13', comp: 'C11', theme: TH_D, partie: 'Thème D — Compléter le bon de commande PapetOffice',
+    type: 'schema', points: 3, context: CTX_PAPET, layout: LAYOUT_BC, schemaTitle: '',
+    text: "Complète le bon de commande n° 2026-014.",
+    qsub: "Clique une étiquette dans la réserve, puis la case où elle doit aller. Toutes les étiquettes ne sont pas utilisées.",
+    answers: ["5", "8", "12", "3", "1", "2", "5 jours ouvrables", "Franco de port", "30 jours date de facture"],
+    bank: ["5", "8", "12", "3", "1", "2", "5 jours ouvrables", "Franco de port", "30 jours date de facture",
+           "40", "36", "Port dû", "30 jours fin de mois"],
+    slotNames: ["Papier — Unité", "Papier — Qté", "Surligneurs — Unité", "Surligneurs — Qté", "Déchiqueteuse — Unité",
+                "Déchiqueteuse — Qté", "Délai de livraison", "Livraison", "Délai de paiement"] },
+  { id: 'EX14', comp: 'C11', theme: TH_D, partie: 'Thème D — Total de la ligne papier (PapetOffice)',
+    type: 'numeric', points: 1, context: CTX_PAPET,
+    text: "Quel montant inscris-tu dans la colonne « Total » de la ligne du papier ?", answer: 172, tolerance: 0.01, unit: '€',
+    corrige: "Qté 8 × P.U. 21,50 € = 172,00 €" },
+  { id: 'EX15', comp: 'C11', theme: TH_D, partie: 'Thème D — Prix unitaire des surligneurs (PapetOffice)',
+    type: 'qcm', points: 1, context: CTX_PAPET,
+    text: "Quel prix unitaire (P.U.) inscris-tu sur la ligne des surligneurs ?",
+    options: ["9,60 €", "0,80 €", "28,80 €", "115,20 €"], correct: 0,
+    corrige: "Le P.U. est le prix d'une unité de vente, ici le lot de 12 : 9,60 €." },
+  { id: 'EX16', comp: 'C11', theme: TH_D, partie: 'Thème D — Total de la ligne surligneurs (PapetOffice)',
+    type: 'numeric', points: 1, context: CTX_PAPET,
+    text: "Quel montant inscris-tu dans la colonne « Total » de la ligne des surligneurs ?", answer: 28.80, tolerance: 0.01, unit: '€',
+    corrige: "Qté 3 × P.U. 9,60 € = 28,80 €" },
+  { id: 'EX17', comp: 'C11', theme: TH_D, partie: 'Thème D — Total HTVA (PapetOffice)',
+    type: 'numeric', points: 2, context: CTX_PAPET,
+    text: "Quel est le total HTVA du bon de commande ?", answer: 480.60, tolerance: 0.01, unit: '€',
+    corrige: "172,00 + 28,80 + (2 × 139,90 = 279,80) = 480,60 €" },
+  { id: 'EX18', comp: 'C11', theme: TH_D, partie: 'Thème D — Total HTVA (Brico-Lux)',
+    type: 'numeric', points: 2, context: CTX_BC,
+    text: "Quel est le montant total HTVA de ce bon de commande ?", answer: 505.70, tolerance: 0.01, unit: '€',
+    corrige: "4 × 89,00 = 356,00 ; 6 × 12,50 = 75,00 ; 3 × 24,90 = 74,70 ; total = 505,70 €" },
 
   // ---------------- THÈME E ----------------
-  { id: 'EX26', comp: 'C6', theme: TH_E, partie: 'Thème E — Frais de port SportZone (particulier, 68 €)',
-    type: 'numeric', points: 1, context: CTX_SPORTZONE,
-    text: "Un particulier commande pour 68,00 € d'articles. Quel montant total paie-t-il à la commande ?", answer: 73.95, tolerance: 0.01, unit: '€',
-    corrige: "68,00 € < 75 € : non franco, frais de port 5,95 €. Pas de remise (< 400 €), pas d'escompte (particulier). Total = 73,95 €" },
-  { id: 'EX27', comp: 'C6', theme: TH_E, partie: 'Thème E — Délai de livraison SportZone',
-    type: 'qcm', points: 1, context: CTX_SPORTZONE,
-    text: "Dans quelle catégorie de délai de livraison se situe SportZone ?",
-    options: ["Standard.", "Express / 24 h.", "Économique.", "Sur rendez-vous."], correct: 0,
-    corrige: "2 à 4 jours ouvrables : livraison standard (2 à 5 jours ouvrables)." },
-  { id: 'EX28', comp: 'C4', theme: TH_E, partie: 'Thème E — Net à payer SportZone (club professionnel, 520 €)',
-    type: 'numeric', points: 2, context: CTX_SPORTZONE,
-    text: "Le club FC Jemappes, client professionnel, commande pour 520,00 € d'articles et paie sa facture dans les 8 jours. Quel montant paie-t-il ?", answer: 468.83, tolerance: 0.02, unit: '€',
-    corrige: "Remise 8 % (≥ 400 €) : 520 × 8 / 100 = 41,60 € → net commercial 478,40 €. Escompte 2 % : 478,40 × 2 / 100 = 9,57 € → net à payer 468,83 €. Livraison franco (≥ 75 €)." },
-  { id: 'EX29', comp: 'C5', theme: TH_E, partie: 'Thème E — Date limite SportZone (professionnel, 30 jours fin de mois)',
-    type: 'qcm', points: 1, context: CTX_SPORTZONE,
-    text: "L'école de danse Pointe et Plié, cliente professionnelle, reçoit une facture datée du 31/08/2026. Elle ne profite pas de l'escompte. Quelle est la date limite de paiement ?",
-    options: ["30/09/2026", "08/09/2026", "31/10/2026", "31/08/2026"], correct: 0,
-    corrige: "Professionnels : 30 jours fin de mois. Facture du 31/08 → 30/09/2026 (les deux lectures de « fin de mois » donnent la même date)." }
+  { id: 'EX19', comp: 'C12', theme: TH_E, partie: 'Thème E — Compléter le planning de suivi (mars)',
+    type: 'schema', points: 3, context: CTX_SUIVI, layout: LAYOUT_PLAN, reusable: true,
+    text: "Complète le planning de suivi des commandes de mars.",
+    qsub: "Clique une étiquette dans la réserve, puis la case où elle doit aller. Une étiquette peut servir plusieurs fois ; certaines ne servent pas.",
+    answers: ["Commande envoyée", "Prévue et réelle", "Commande envoyée", "Livraison prévue", "Livraison réelle",
+              "Commande envoyée", "Livraison prévue", "Rappel", "Livraison réelle"],
+    bank: ["Commande envoyée", "Livraison prévue", "Livraison réelle", "Prévue et réelle", "Rappel", "Mise en demeure", "Facture reçue"],
+    slotNames: ["301 — 02/03", "301 — 09/03", "302 — 04/03", "302 — 11/03", "302 — 13/03",
+                "303 — 06/03", "303 — 13/03", "303 — 16/03", "303 — 18/03"] },
+  { id: 'EX20', comp: 'C12', theme: TH_E, partie: 'Thème E — Jours de retard de la commande 402',
+    type: 'numeric', points: 1, context: CTX_PLANNING,
+    text: "De combien de jours la commande 402 a-t-elle été livrée en retard ?", answer: 5, tolerance: 0.01, unit: 'jours',
+    corrige: "Prévue le 10/04, livrée le 15/04 : 5 jours de retard" },
+  { id: 'EX21', comp: 'C12', theme: TH_E, partie: 'Thème E — Commandes livrées en retard (avril)',
+    type: 'multi', points: 1, context: CTX_PLANNING,
+    text: "Sélectionne toutes les commandes livrées en retard.",
+    qsub: "Plusieurs réponses peuvent être correctes.",
+    options: ["401 – Dyson", "402 – Siemens", "403 – Samsung", "404 – Braun"],
+    multi: [1, 2] },
+  { id: 'EX22', comp: 'C12', theme: TH_E, partie: 'Thème E — Moyen du 2e rappel (commande 403)',
+    type: 'qcm', points: 1, context: CTX_PLANNING,
+    text: "Pour la commande 403, quel moyen le rappel du 20/04 aurait-il dû utiliser, selon la procédure ?",
+    options: ["Une lettre ou un e-mail formel.", "Un appel téléphonique.", "Une lettre recommandée avec mise en demeure.", "Un passage du représentant."],
+    correct: 0,
+    corrige: "Le rappel du 20/04 est le 2e rappel : lettre ou e-mail formel." },
+  { id: 'EX23', comp: 'C12', theme: TH_E, partie: 'Thème E — Lire la ligne de la commande 404',
+    type: 'qcm', points: 1, context: CTX_PLANNING,
+    text: "Que peux-tu conclure de la ligne de la commande 404 ?",
+    options: [
+      "La marchandise a été livrée un jour avant la date prévue.",
+      "La marchandise a été livrée un jour après la date prévue.",
+      "Un rappel a été envoyé au fournisseur le 15/04.",
+      "La commande a été envoyée le 15/04."
+    ], correct: 0,
+    corrige: "L le 15/04, P le 16/04 : livraison un jour avant la date prévue." },
+  { id: 'EX24', comp: 'C12', theme: TH_E, partie: 'Thème E — Affirmations fausses (message du service achats)',
+    type: 'erreurs', points: 3,
+    docTitle: "Message de Karim, service achats",
+    docMeta: "À : nouveau stagiaire · Objet : le suivi de nos commandes",
+    text: "Karim explique au nouveau stagiaire comment le service suit les commandes. Clique sur les affirmations qui sont fausses.",
+    qsub: "Clique une phrase pour la signaler ; clique à nouveau pour annuler ta sélection.",
+    segments: [
+      { t: "Dès qu'une commande est envoyée, nous vérifions que le délai de livraison est respecté." },
+      { t: "Un retard de livraison n'a aucune conséquence pour nous, puisque nous ne payons qu'après la réception.",
+        err: true, fix: "Un retard peut entraîner une rupture de stock : impossibilité de vendre, perte de clients." },
+      { t: "Pour suivre nos commandes, nous utilisons un planning qui couvre souvent un mois." },
+      { t: "Ce planning peut être tenu sur un tableur comme Excel ou dans un logiciel de gestion (ERP)." },
+      { t: "Sur le planning, il suffit d'indiquer la date de livraison prévue.",
+        err: true, fix: "Le planning indique la date de commande, la livraison prévue, la livraison effective et les rappels." },
+      { t: "La semaine dernière, une commande n'est pas arrivée à la date prévue : j'ai téléphoné au fournisseur, c'était le premier rappel." },
+      { t: "Comme cet appel n'a rien donné, j'ai envoyé comme deuxième rappel une lettre recommandée avec mise en demeure.",
+        err: true, fix: "2e rappel : lettre ou e-mail formel. La lettre recommandée avec mise en demeure est le 3e rappel." },
+      { t: "La mise en demeure rappelle officiellement au fournisseur son obligation de livrer." },
+      { t: "Le préjudice, c'est le document officiel qui annule la commande.",
+        err: true, fix: "Le préjudice est la perte financière subie suite à la non-livraison." },
+      { t: "Dans une entreprise de production, une rupture de stock peut bloquer la fabrication." }
+    ] }
 ];
 
 // RANDOMISATION — tous les types, une seule fois au chargement
@@ -1016,7 +1045,7 @@ function renderClasser(ex) {
   return reserveHTML(reserve, 'Toutes les étiquettes sont placées.') + `<div class="bins">${bins}</div>`;
 }
 function bankTags(ex) {
-  const used = Object.values(EXUI.place);
+  const used = ex.reusable ? [] : Object.values(EXUI.place);   // réutilisable : l'étiquette reste en réserve
   return ex.bank.map(w => used.includes(w) ? '' :
     `<div class="tag ${EXUI.pick === w ? 'picked' : ''}" data-bank="${esc(w)}" role="button" tabindex="0">${esc(w)}</div>`).join('');
 }
@@ -1037,18 +1066,8 @@ function renderSchema(ex) {
     const v = EXUI.place[k];
     return `<div class="sch-slot ${droppable}" data-slot="${k}">${v !== undefined ? `<span class="tag placed">${esc(v)}</span>` : '<span class="slot-empty">?</span>'}</div>`;
   };
-  const fixed = t => `<td class="fixed">${t}</td>`;
-  return reserveHTML(bankTags(ex), 'Tous les mots sont placés.') + `
-    <div class="sch-title">Tableau récapitulatif</div>
-    <div class="sch-wrap"><table class="sch">
-      <thead><tr><th>Réduction</th><th>Type</th><th>Raison</th><th>Quand ?</th></tr></thead>
-      <tbody>
-        <tr><td class="rowh">Rabais</td>${fixed('Commerciale')}<td>${slot(0)}</td><td>${slot(1)}</td></tr>
-        <tr><td class="rowh">Remise</td>${fixed('Commerciale')}<td>${slot(2)}</td><td>${slot(3)}</td></tr>
-        <tr><td class="rowh">Ristourne</td>${fixed('Commerciale')}<td>${slot(4)}</td><td>${slot(5)}</td></tr>
-        <tr><td class="rowh">Escompte</td><td>${slot(6)}</td><td>${slot(7)}</td><td>${slot(8)}</td></tr>
-      </tbody>
-    </table></div>`;
+  const html = ex.layout.replace(/\{\{(\d+)\}\}/g, (m, k) => slot(parseInt(k, 10)));
+  return reserveHTML(bankTags(ex), 'Tous les mots sont placés.') + html;
 }
 
 // ============================================================
